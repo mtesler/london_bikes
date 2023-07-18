@@ -33,9 +33,36 @@ new_col_dict = {
 # rename the columns to the specified column names
 bikes.rename(new_col_dict, axis=1, inplace=True)
 
-print(bikes.humidity_percent)
-
 # change the humidity values to percentage (i.e. a value between 0 and 1)
 bikes.humidity_percent = bikes.humidity_percent / 100
 
-print(bikes.humidity_percent)
+# create a season dictionary to map the column values to the actual written values
+season_dict = {
+    '0.0': 'spring',
+    '1.0': 'summer',
+    '2.0': 'autumn',
+    '3.0': 'winter'
+}
+
+# create a weather dictionary to map the column values to the actual written values
+weather_dict = {
+    '1.0': 'Clear',
+    '2.0': 'Scattered clouds',
+    '3.0': 'Broken clouds',
+    '4.0': 'Cloudy',
+    '7.0': 'Rain',
+    '10.0': 'Rain with thunderstorm',
+    '26.0': 'Snowfall'
+}
+
+# change the seasons column data type to string
+bikes.season = bikes.season.astype('str')
+
+# map the seasons column values to the actual written seasons
+bikes.season = bikes.season.map(season_dict)
+
+# change the weather column data type to string
+bikes.weather = bikes.weather.astype('str')
+
+# map the weather column values to the actual writter weaters
+bikes.weather = bikes.weather.map(weather_dict)
