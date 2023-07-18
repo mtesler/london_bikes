@@ -32,3 +32,10 @@ new_col_dict = {
 
 # rename the columns to the specified column names
 bikes.rename(new_col_dict, axis=1, inplace=True)
+
+print(bikes.humidity_percent)
+
+# change the humidity values to percentage (i.e. a value between 0 and 1)
+bikes.humidity_percent = bikes.humidity_percent / 100
+
+print(bikes.humidity_percent)
