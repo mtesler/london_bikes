@@ -15,3 +15,20 @@ bikes = pd.read_csv('london_merged.csv')
 
 # explore the data
 bikes.info()
+
+# specyfying the column names that I want to use
+new_col_dict = {
+    'timestamp': 'time',
+    'cnt': 'count',
+    't1': 'temp_real_C',
+    't2': 'temp_feels_like_C',
+    'hum': 'humidity_percent',
+    'wind_speed': 'wind_speed_kph',
+    'weather_code': 'weather',
+    'is_holiday': 'is_holiday',
+    'is_weekend': 'is_weekend',
+    'season': 'season'
+}
+
+# rename the columns to the specified column names
+bikes.rename(new_col_dict, axis=1, inplace=True)
