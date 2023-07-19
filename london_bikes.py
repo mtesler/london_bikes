@@ -66,3 +66,6 @@ bikes.weather = bikes.weather.astype('str')
 
 # map the weather column values to the actual writter weaters
 bikes.weather = bikes.weather.map(weather_dict)
+
+# export the dataframe to an excel file
+bikes.to_excel('london_bikes_final.xlsx', sheet_name='Data')
